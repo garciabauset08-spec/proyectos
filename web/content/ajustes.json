@@ -1,0 +1,155 @@
+{
+  "_nota": "Ajustes globales editables. Un valor null o vacío NO se muestra en la web pública.",
+  "sitio": {
+    "url": "https://danzcollective.com",
+    "nombre": "Danz Collective",
+    "conceptBar": true
+  },
+  "contacto": {
+    "email": "info@danzcollective.com",
+    "direccion": "Calle Moral 14, 28807",
+    "localidad": null,
+    "telefono": null,
+    "whatsapp": null,
+    "horario": null
+  },
+  "envios": {
+    "gratisDesde": 75,
+    "preparacion": "1–3 días laborables",
+    "tarifas": [
+      {
+        "destino": "España",
+        "precio": "4,99 €",
+        "nota": "Gratis desde 75 €",
+        "plazo": "2–5 días laborables"
+      },
+      {
+        "destino": "Unión Europea",
+        "precio": "12,99 €",
+        "nota": null,
+        "plazo": "5–10 días laborables"
+      },
+      {
+        "destino": "Resto del mundo",
+        "precio": "21,99 €",
+        "nota": null,
+        "plazo": "10–20 días laborables"
+      }
+    ],
+    "confirmado": false
+  },
+  "cambios": {
+    "dias": 14,
+    "texto": "Tienes 14 días desde la entrega para cambiar o devolver tu prenda, sin usar y con su etiqueta. El reembolso se hace al mismo método de pago.",
+    "pendienteValidar": true
+  },
+  "redes": [
+    {
+      "nombre": "Instagram de Danzflor",
+      "usuario": "@danzflor.clothing",
+      "url": "https://www.instagram.com/danzflor.clothing/"
+    },
+    {
+      "nombre": "SoundCloud de Danz In Records",
+      "usuario": "collectivedanz",
+      "url": "https://soundcloud.com/collectivedanz"
+    }
+  ],
+  "home": {
+    "heroImagen": "club-house-piscina-ibiza",
+    "heroAlt": "Chico de espaldas con la camiseta Club House cruzando una piscina con nenúfares sobre piedras, en un paisaje de Ibiza",
+    "heroEyebrow": "Danz Collective · Tracks & Cocktails",
+    "coleccionDestacada": "tracks-cocktails",
+    "lanzamientoDestacado": "dnz13"
+  },
+  "proximaFiesta": null,
+  "lanzamientos": [
+    {
+      "id": "dnz13",
+      "titulo": "Last Breath",
+      "artista": "Chicharro ES",
+      "catalogo": "DNZ13",
+      "url": "https://soundcloud.com/collectivedanz/chicharro-es-last-breath-dnz13"
+    },
+    {
+      "id": "dnz12",
+      "titulo": "Piur Life",
+      "artista": "Santacruz",
+      "catalogo": "DNZ12",
+      "url": "https://soundcloud.com/collectivedanz/santacruz-piur-life-dnz12"
+    },
+    {
+      "id": "leoen",
+      "titulo": "Leoen Dat Feeling",
+      "artista": "Chicharro ES",
+      "catalogo": null,
+      "url": "https://soundcloud.com/collectivedanz/chicharro-es-leoen-dat-feeling"
+    },
+    {
+      "id": "dnz10",
+      "titulo": "Funky EP",
+      "artista": "Keanu Callister",
+      "catalogo": "DNZ-10",
+      "url": "https://soundcloud.com/collectivedanz/sets/funky-ep-dnz-1o"
+    }
+  ],
+  "colecciones": {
+    "tracks-cocktails": {
+      "titulo": "Tracks & Cocktails",
+      "temporada": "PV 2026",
+      "descripcion": "Tracks & Cocktails es la colección de primavera-verano 2026 de Danzflor: camisetas heavyweight de algodón orgánico de 240 g/m², un bañador de poliéster reciclado y una bolsa para llevarlo todo. Estampados de copa de martini, vinilos y terrazas de Madrid, impresos en nuestro estudio. Ropa para quien vive la música house de día y de noche."
+    },
+    "danzers-world-v2": {
+      "titulo": "Danzers World V2",
+      "temporada": null,
+      "descripcion": "Merch creado alrededor de Danzers, nuestra fiesta de house y tech house en Madrid. La camiseta que llevas a la fiesta y guardas como recuerdo."
+    }
+  },
+  "archivo": [
+    {
+      "titulo": "Danzers World V1",
+      "texto": "Piezas exclusivas hechas solo para el evento."
+    },
+    {
+      "titulo": "Last Call to Madrid – Ibiza",
+      "texto": "Verano en Ibiza. Ropa hecha a mano."
+    },
+    {
+      "titulo": "Friends and Family",
+      "texto": "El primer drop. Donde empezó todo."
+    }
+  ],
+  "artistas": [
+    {
+      "nombre": "Keanu Callister",
+      "origen": "Países Bajos",
+      "bio": "Productor neerlandés con raíces caribeñas. Debutó en el sello con el Funky EP.",
+      "lanzamientos": [
+        "dnz10"
+      ]
+    },
+    {
+      "nombre": "Santacruz",
+      "origen": "Madrid",
+      "bio": "Afincado en Madrid y de origen colombiano. Su primer lanzamiento en el sello es Piur Life.",
+      "lanzamientos": [
+        "dnz12"
+      ]
+    },
+    {
+      "nombre": "Chicharro ES",
+      "origen": null,
+      "bio": null,
+      "lanzamientos": [
+        "dnz13",
+        "leoen"
+      ]
+    }
+  ],
+  "ediciones": [],
+  "equipo": [],
+  "eventosHistoria": {
+    "inicio": "Enero de 2023",
+    "texto": "Danzers by Danz Collective es nuestra fiesta de house y tech house en Madrid. Empezó en enero de 2023 y desde entonces hemos montado varias ediciones bajo el nombre Danzers World: buena música, gente que baila y cero postureo."
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "_nota": "Stock y ids de variante leídos del /products.json público de danzcollective.com el 19/11/2026. En la web final se regenera en cada build (scripts/sync-stock.mjs).",
+  "cdn": "https://cdn.shopify.com/s/files/1/0991/7910/2555/files/",
+  "tienda": "https://danzcollective.com",
+  "productos": [
+    {
+      "handle": "club-house-tee",
+      "nombre": "Club House Tee",
+      "precio": 38,
+      "tipo": "Camiseta",
+      "color": "Gris oscuro",
+      "coleccion": "tracks-cocktails",
+      "tallaModelo": "L",
+      "modelo": "El modelo",
+      "tejido": "Algodón orgánico de 240 g/m²",
+      "descripcion": "Camiseta heavyweight extra suave de verano, en gris oscuro. Hecha para la noche y para quien disfruta mezclando experiencias. Algodón orgánico de 240 g/m². Corte fácil de llevar, look limpio. El modelo lleva una L. Impresa en nuestro estudio. En la espalda lleva el estampado \"Club House · The art of Mixing\" con copa de martini.",
+      "imagenes": [
+        {
+          "src": "danz_cocktails_-_Artboard_21-5.png",
+          "alt": "Club House Tee gris oscuro, vista frontal",
+          "w": 1080,
+          "h": 1080
+        },
+        {
+          "src": "danz_cocktails_-_Artboard_21-4.png",
+          "alt": "Club House Tee, espalda con la copa de martini y el texto Club House · The art of Mixing",
+          "w": 1080,
+          "h": 1080
+        },
+        {
+          "src": "DSC02505.jpg",
+          "alt": "Chico de espaldas con la Club House Tee gris oscuro junto a una piscina, con la Yepo Bag en la mano",
+          "w": 2387,
+          "h": 3581
+        },
+        {
+          "src": "DSC02491.jpg",
+          "alt": "Chico con la Club House Tee gris oscuro y la Yepo Bag junto a la piscina",
+          "w": 2248,
+          "h": 3372
+        },
+        {
+          "src": "DSC02343-Mejorado-NR.jpg",
+          "alt": "Chico sentado al borde de la piscina con la Club House Tee, enseñando la copa de martini estampada en la espalda",
+          "w": 832,
+          "h": 1248
+        },
+        {
+          "src": "DSC02266-Mejorado-NR.jpg",
+          "alt": "Chico con gafas de sol y la Club House Tee comiendo uvas en un jardín",
+          "w": 2624,
+          "h": 3936
+        },
+        {
+          "src": "DSC02877.jpg",
+          "alt": "Chica de espaldas con la Club House Tee y una copa en la mano, sobre el césped",
+          "w": 2401,
+          "h": 3601
+        },
+        {
+          "src": "DSC02928.jpg",
+          "alt": "Chica con la Club House Tee gris oscuro levantando una copa",
+          "w": 1362,
+          "h": 2043
+        }
+      ],
+      "variantes": [
+        {
+          "id": 52782613692763,
+          "talla": "S",
+          "disponible": true
+        },
+        {
+          "id": 52782613725531,
+          "talla": "M",
+          "disponible": true
+        },
+        {
+          "id": 52782613758299,
+          "talla": "L",
+          "disponible": true
+        },
+        {
+          "id": 52782613791067,
+          "talla": "XL",
+          "disponible": true
+        }
+      ]
+    },
+    {
+      "handle": "tracks-cocktails-tee",
+      "nombre": "Tracks & Cocktails Tee",
+      "precio": 38,
+      "tipo": "Camiseta",
+      "color": "Blanco nuclear",
+      "coleccion": "tracks-cocktails",
+      "tallaModelo": "M",
+      "modelo": "El modelo",
+      "tejido": "Algodón orgánico de 240 g/m²",
+      "descripcion": "Camiseta heavyweight extra suave de verano, en blanco nuclear. La que da nombre a la colección. Algodón orgánico de 240 g/m². El modelo lleva una M.",
+      "imagenes": [
+        {
+          "src": "danz_cocktails_-_Artboard_21-7.png",
+          "alt": "Tracks & Cocktails Tee blanco nuclear, vista frontal",
+          "w": 1080,
+          "h": 1080
+        },
+        {
+          "src": "danz_cocktails_-_Artboard_21-6.png",
+          "alt": "Tracks & Cocktails Tee, vista de espalda",
+          "w": 1080,
+          "h": 1080
+        },
+        {
+          "src": "DSC03962-Mejorado-NR.jpg",
+          "alt": "Chica con gorro de pescador y la Tracks & Cocktails Tee blanca en un jardín",
+          "w": 3530,
+          "h": 4899
+        },
+        {
+          "src": "DSC03106.jpg",
+          "alt": "Chica de espaldas con la Tracks & Cocktails Tee y gorro azul junto a una piscina",
+          "w": 2624,
+          "h": 3936
+        },
+        {
+          "src": "DSC02226-Mejorado-NR_da427ab4-c25e-439f-bb8c-9a4cdf3087d0.jpg",
+          "alt": "Chico sonriendo con gafas de sol y la Tracks & Cocktails Tee, enseñando el estampado de la espalda",
+          "w": 2624,
+          "h": 3936
+        },
+        {
+          "src": "DSC02409-Mejorado-NR.jpg",
+          "alt": "Chico con la Tracks & Cocktails Tee comiendo uvas, con el logo del pecho a la vista",
+          "w": 1913,
+          "h": 2869
+        },
+        {
+          "src": "DSC02791.jpg",
+          "alt": "Chica de espaldas con la Tracks & Cocktails Tee y pantalón estampado en el jardín",
+          "w": 2624,
+          "h": 3936
+        }
+      ],
+      "variantes": [
+        {
+          "id": 52782610186587,
+          "talla": "S",
+          "disponible": true
+        },
+        {
+          "id": 52782610219355,
+          "talla": "M",
+          "disponible": true
+        },
+        {
+          "id": 52782610252123,
+          "talla": "L",
+          "disponible": true
+        },
+        {
+          "id": 52782610284891,
+          "talla": "XL",
+          "disponible": true
+        }
+      ]
+    },
+    {
+      "handle": "disco-culture-tee",
+      "nombre": "Disco Culture Tee",
+      "precio": 38,
+      "tipo": "Camiseta",
+      "color": "Crema",
+      "coleccion": "tracks-cocktails",
+      "tallaModelo": "S",
+      "modelo": "La modelo",
+      "tejido": "Algodón orgánico de 240 g/m²",
+      "descripcion": "Camiseta heavyweight extra suave de verano, en color crema. Un clásico instantáneo de la colección. Algodón orgánico de 240 g/m². La modelo lleva una S.",
+      "imagenes": [
+        {
+          "src": "danz_cocktails_-_Artboard_21.png",
+          "alt": "Disco Culture Tee crema, vista frontal",
+          "w": 1080,
+          "h": 1080
+        },
+        {
+          "src": "danz_cocktails_-_Artboard_21-2.png",
+          "alt": "Disco Culture Tee, vista de espalda",
+          "w": 1080,
+          "h": 1080
+        },
+        {
+          "src": "DSC03202.jpg",
+          "alt": "Chico con la Disco Culture Tee color crema y un radiocasete en la mano, en un jardín",
+          "w": 2044,
+          "h": 3066
+        },
+        {
+          "src": "DSC03208.jpg",
+          "alt": "Chico de espaldas con la Disco Culture Tee, enseñando el estampado trasero",
+          "w": 1303,
+          "h": 1955
+        },
+        {
+          "src": "DSC03040.jpg",
+          "alt": "Chica de espaldas con la Disco Culture Tee color crema en el jardín",
+          "w": 2297,
+          "h": 3445
+        },
+        {
+          "src": "DSC02162-Mejorado-NR.jpg",
+          "alt": "Chica con la Disco Culture Tee y gafas de sol tomando una copa, junto a otra persona con pañuelo",
+          "w": 2261,
+          "h": 3392
+        },
+        {
+          "src": "DSC02127-Mejorado-NR.jpg",
+          "alt": "Chica con gafas de sol y la Disco Culture Tee junto a un flotador amarillo",
+          "w": 832,
+          "h": 1248
+        }
+      ],
+      "variantes": [
+        {
+          "id": 52782614905179,
+          "talla": "S",
+          "disponible": true
+        },
+        {
+          "id": 52782614872411,
+          "talla": "M",
+          "disponible": false
+        },
+        {
+          "id": 52782614839643,
+          "talla": "L",
+          "disponible": false
+        },
+        {
+          "id": 52782614806875,
+          "talla": "XL",
+          "disponible": true
+        }
+      ]
+    },
+    {
+      "handle": "swim-short",
+      "nombre": "Yepo Swim Short",
+      "precio": 40,
+      "tipo": "Baño",
+      "color": "Estampado Yepo / T&C",
+      "coleccion": "tracks-cocktails",
+      "tallaModelo": "M",
+      "modelo": "El modelo",
+      "tejido": "Poliéster reciclado hidrófugo con forro de malla",
+      "descripcion": "Bañador con estampado sublimado Tracks & Cocktails. Combina con cualquier camiseta de la colección. Poliéster reciclado hidrófugo con forro de malla. El modelo lleva una M.",
+      "imagenes": [
+        {
+          "src": "Retro_Elegant_Travelling_Magazine_Cover_-_illustrationImage-2.png",
+          "alt": "Yepo Swim Short, vista frontal del estampado",
+          "w": 1701,
+          "h": 1354
+        },
+        {
+          "src": "Retro_Elegant_Travelling_Magazine_Cover_-_illustrationImage-3.png",
+          "alt": "Yepo Swim Short, vista trasera",
+          "w": 1701,
+          "h": 1354
+        },
+        {
+          "src": "DSC02340-Mejorado-NR_92105661-5fa3-4412-822f-dc623f4521aa.jpg",
+          "alt": "Chico sentado con gafas de sol, camiseta blanca y el Yepo Swim Short estampado",
+          "w": 2624,
+          "h": 3936
+        },
+        {
+          "src": "DSC03841-Mejorado-NR.jpg",
+          "alt": "Pareja tumbada en una hamaca; él lleva gafas naranjas y el Yepo Swim Short",
+          "w": 4000,
+          "h": 6000
+        },
+        {
+          "src": "DSC04120.jpg",
+          "alt": "Foto de campaña del Yepo Swim Short: chica con gafas de sol y bikini bajo el cielo azul",
+          "w": 4000,
+          "h": 4000
+        }
+      ],
+      "variantes": [
+        {
+          "id": 52782619656539,
+          "talla": "S",
+          "disponible": true
+        },
+        {
+          "id": 52782619689307,
+          "talla": "M",
+          "disponible": true
+        },
+        {
+          "id": 52782619722075,
+          "talla": "L",
+          "disponible": true
+        },
+        {
+          "id": 52782619754843,
+          "talla": "XL",
+          "disponible": true
+        }
+      ]
+    },
+    {
+      "handle": "yepo-bag",
+      "nombre": "Yepo Bag",
+      "precio": 14,
+      "tipo": "Accesorio",
+      "color": "Natural · 40 × 35 cm",
+      "coleccion": "tracks-cocktails",
+      "tallaModelo": null,
+      "modelo": null,
+      "tejido": "Algodón orgánico de 280 g/m²",
+      "descripcion": "Bolsa heavyweight con cremallera y bolsillo Tracks & Cocktails. Algodón orgánico de 280 g/m². 40 × 35 cm.",
+      "imagenes": [
+        {
+          "src": "GRAFICAS_TRACKS_AND_COCKTAILS_-_New_Group-7.png",
+          "alt": "Yepo Bag, vista frontal",
+          "w": 1595,
+          "h": 2232
+        },
+        {
+          "src": "GRAFICAS_TRACKS_AND_COCKTAILS_-_New_Group-6.png",
+          "alt": "Yepo Bag, vista trasera con el bolsillo Tracks & Cocktails",
+          "w": 1508,
+          "h": 2231
+        },
+        {
+          "src": "DSC03473.jpg",
+          "alt": "Chica con pañuelo en la cabeza y top de bikini abriendo la Yepo Bag",
+          "w": 2624,
+          "h": 3936
+        },
+        {
+          "src": "DSC03554-Mejorado-NR.jpg",
+          "alt": "Chica con la Yepo Bag colgada al hombro frente a una pared de ladrillo",
+          "w": 832,
+          "h": 1248
+        },
+        {
+          "src": "DSC03047_275c3d5d-2dce-4235-a8ab-79e8797a2de8.jpg",
+          "alt": "Chica con la Yepo Bag al hombro en un jardín",
+          "w": 2122,
+          "h": 3183
+        }
+      ],
+      "variantes": [
+        {
+          "id": 52781398393179,
+          "talla": "Única",
+          "disponible": false
+        }
+      ]
+    },
+    {
+      "handle": "danzers-world-white-tee",
+      "nombre": "Danzers World White Tee",
+      "precio": 30,
+      "tipo": "Camiseta",
+      "color": "Blanco",
+      "coleccion": "danzers-world-v2",
+      "tallaModelo": "M",
+      "modelo": "El modelo",
+      "tejido": "Algodón orgánico de 240 g/m²",
+      "descripcion": "Camiseta blanca creada alrededor de Danzers World, para quienes se mueven al ritmo del house. La que llevas a la fiesta y guardas como recuerdo. Algodón orgánico de 240 g/m². El modelo lleva una M.",
+      "imagenes": [
+        {
+          "src": "Playproof3DDopamineMagazine-Artboard17-2.png",
+          "alt": "Danzers World White Tee, vista frontal",
+          "w": 3548,
+          "h": 3547
+        },
+        {
+          "src": "Playproof3DDopamineMagazine-Artboard17.png",
+          "alt": "Danzers World White Tee, vista de espalda",
+          "w": 3548,
+          "h": 3547
+        }
+      ],
+      "variantes": [
+        {
+          "id": 55151129493851,
+          "talla": "S",
+          "disponible": false
+        },
+        {
+          "id": 55151129526619,
+          "talla": "M",
+          "disponible": false
+        },
+        {
+          "id": 55151129559387,
+          "talla": "L",
+          "disponible": false
+        },
+        {
+          "id": 55151129592155,
+          "talla": "XL",
+          "disponible": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sistema de diseño · Danzflor</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Página interna de estilos de la nueva web de Danz Collective y Danzflor: tokens, tipografía y componentes.">
+  <link rel="preload" href="/fonts/unbounded-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fuentes.css">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/componentes.css">
+  <style>
+    /* — Solo para la página de estilos — */
+    .sg-nav { position: sticky; top: 64px; z-index: 40; background: rgb(10 10 10 / 0.9); border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+    .sg-nav ul { display: flex; gap: var(--sp-1); list-style: none; padding: var(--sp-2) var(--gutter); width: max-content; }
+    .sg-nav a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 var(--sp-3); border-radius: var(--radius-pill); font-size: var(--fs-small); color: var(--text-2); text-decoration: none; white-space: nowrap; }
+    .sg-nav a:hover { color: var(--text); background: var(--surface-2); }
+    .sg-section { padding-block: var(--sp-8); border-bottom: 1px solid var(--line); }
+    .sg-head { display: grid; gap: var(--sp-2); margin-bottom: var(--sp-6); max-width: 70ch; }
+    .sg-head .eyebrow { color: var(--accent); }
+    .sg-grid { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
+    .sg-card { padding: var(--sp-5); border-radius: var(--radius-m); background: var(--surface-1); box-shadow: inset 0 0 0 1px var(--line); }
+    .sg-label { font-size: var(--fs-micro); color: var(--text-3); font-family: ui-monospace, Menlo, monospace; margin-top: var(--sp-2); }
+    .swatch { display: grid; gap: var(--sp-2); }
+    .swatch__chip { aspect-ratio: 16 / 10; border-radius: var(--radius-m); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08); display: flex; align-items: flex-end; padding: var(--sp-3); font-weight: 600; font-size: var(--fs-small); }
+    .type-row { display: grid; gap: var(--sp-2); padding-block: var(--sp-5); border-top: 1px solid var(--line); }
+    .type-row:first-child { border-top: 0; padding-top: 0; }
+    .demo-row { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center; }
+    .cards { display: grid; gap: var(--sp-6) var(--sp-4); grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 900px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+    .two { display: grid; gap: var(--sp-6); }
+    @media (min-width: 900px) { .two { grid-template-columns: 1fr 1fr; } }
+
+    /* Hero de muestra (dirección A + B) */
+    .hero { position: relative; min-height: min(92svh, 980px); display: grid; overflow: hidden; }
+    .hero__media { position: absolute; inset: 0; }
+    .hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+    .hero__scrim { position: absolute; inset: 0; z-index: 1; background:
+      linear-gradient(180deg, rgb(10 10 10 / 0.55) 0%, transparent 28%, transparent 45%, rgb(10 10 10 / 0.85) 78%, var(--bg) 100%),
+      radial-gradient(90% 60% at 10% 100%, rgb(255 122 61 / 0.35), transparent 70%); }
+    .hero__content { position: relative; z-index: 3; align-self: end; padding-block: var(--sp-8) var(--sp-7); display: grid; gap: var(--sp-5); }
+    .hero__title { max-width: 14ch; }
+    .hero__title em { font-style: normal; color: var(--accent); }
+    .hero__vinyl { position: absolute; z-index: 2; right: -22vw; top: 3%; --vinyl-size: 52vw; opacity: 0.85; }
+    .hero__sticker { position: absolute; z-index: 3; right: var(--gutter); top: 6%; }
+    @media (min-width: 900px) {
+      .hero { grid-template-columns: 1.1fr 0.9fr; min-height: min(88svh, 900px); }
+      .hero__media { position: relative; inset: auto; grid-column: 2; grid-row: 1; margin: var(--sp-5) var(--gutter) var(--sp-5) 0; border-radius: var(--radius-l); overflow: hidden; }
+      .hero__scrim { background: linear-gradient(180deg, transparent 50%, rgb(10 10 10 / 0.5)); border-radius: var(--radius-l); inset: var(--sp-5) var(--gutter) var(--sp-5) 0; grid-column: 2; grid-row: 1; position: absolute; left: auto; width: auto; }
+      .hero__content { grid-column: 1; grid-row: 1; align-self: center; padding-left: var(--gutter); width: auto; margin: 0; }
+      .hero__title { font-size: clamp(2.75rem, 0.5rem + 5vw, 7rem); }
+      .hero__vinyl { --vinyl-size: 34vw; right: auto; left: 40%; top: auto; bottom: -10vw; z-index: 0; opacity: 0.55; }
+      .hero__sticker { right: calc(var(--gutter) + 24px); top: calc(var(--sp-5) + 24px); }
+    }
+    :root { --tabbar-h: 64px; }
+    body { padding-bottom: var(--tabbar-h); }
+    @media (min-width: 900px) { :root { --tabbar-h: 0px; } }
+    #dz-audio-host { position: fixed; left: var(--sp-3); right: var(--sp-3); bottom: calc(140px + env(safe-area-inset-bottom)); z-index: 70; max-width: 520px; margin-inline: auto; width: 1px; height: 1px; opacity: 0; pointer-events: none; overflow: hidden; }
+    #dz-audio-host iframe { width: 100%; height: 120px; border: 0; }
+    #dz-audio-host.needs-tap { width: auto; height: auto; opacity: 1; pointer-events: auto; border-radius: var(--radius-m); background: var(--surface-1); padding: var(--sp-3); box-shadow: var(--shadow-2); }
+    #dz-audio-host.needs-tap::before { content: "Tu navegador pide que pulses play una vez dentro del reproductor:"; display: block; font-size: var(--fs-small); color: var(--text-2); margin-bottom: var(--sp-2); }
+  </style>
+</head>
+<body>
+  <!-- Iconos (sprite) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <mask id="m-flor"><rect x="-12" y="-12" width="24" height="24" fill="#fff"/><circle r="2.6" fill="#000"/></mask>
+    </defs>
+    <symbol id="i-flor" viewBox="-12 -12 24 24"><g mask="url(#m-flor)" fill="currentColor"><circle cx="0" cy="-6.4" r="4.3"/><circle cx="5.54" cy="-3.2" r="4.3"/><circle cx="5.54" cy="3.2" r="4.3"/><circle cx="0" cy="6.4" r="4.3"/><circle cx="-5.54" cy="3.2" r="4.3"/><circle cx="-5.54" cy="-3.2" r="4.3"/><circle r="5"/></g></symbol>
+    <symbol id="i-martini" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18l-9 9z"/><path d="M12 13v7M8 20.5h8"/><path d="M15.5 2 13 8.5"/><circle cx="12.4" cy="9.6" r="1.3" fill="currentColor"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12.5H6z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20.5c1.4-3.6 4.2-5.3 7.5-5.3s6.1 1.7 7.5 5.3"/></symbol>
+    <symbol id="i-shop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M8 3.5 3.5 6.5l2 4 2-1V20.5h9V9.5l2 1 2-4L16 3.5a4 4 0 0 1-8 0z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h11"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.5 6.5h11v10h-11zM13.5 9.5h4l3 3.5v3.5h-7z"/><circle cx="7" cy="17.5" r="1.8" fill="var(--bg)"/><circle cx="17" cy="17.5" r="1.8" fill="var(--bg)"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h14l-3.5-3.5M20 16H6l3.5 3.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 19.5 5.3 16A7.5 7.5 0 1 1 8 18.7z"/><path d="M9 10.5c.3 1.8 2.2 3.7 4 4l1.2-1.2 1.8.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.5 2.7 2.7L16.5 9"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 7.5v5.5M12 16.5v.01"/></symbol>
+    <symbol id="i-ruler" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m3 16.5 13.5-13.5 4.5 4.5L7.5 21z"/><path d="m7 12.5 2 2M10 9.5l2 2M13 6.5l2 2" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="concept-bar">Concepto de rediseño · no es la web oficial</div>
+
+  <!-- Cabecera -->
+  <header class="header">
+    <div class="container header__row">
+      <a class="wordmark" href="#top" aria-label="Danzflor, inicio">DANZFL<svg class="flor" aria-hidden="true"><use href="#i-flor"/></svg>R</a>
+      <nav class="nav" aria-label="Principal">
+        <ul>
+          <li><a href="#tarjetas" aria-current="page">Tienda</a></li>
+          <li><a href="#reproductor">Música</a></li>
+          <li><a href="#contador">Eventos</a></li>
+          <li><a href="#motivos">Nosotros</a></li>
+          <li><a href="#acordeon">Ayuda</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <button class="btn btn--icon hide-sm" type="button" aria-label="Buscar"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
+        <a class="btn btn--icon hide-sm" href="#formularios" aria-label="Mi cuenta"><svg aria-hidden="true"><use href="#i-user"/></svg></a>
+        <button class="btn btn--icon cart-btn" type="button" data-open="cart-drawer" aria-label="Abrir carrito, vacío">
+          <svg aria-hidden="true"><use href="#i-bag"/></svg><span class="cart-btn__count" data-cart-count></span>
+        </button>
+        <button class="btn btn--icon header__menu-btn" type="button" data-open="menu" aria-label="Abrir menú"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sg-nav" aria-label="Secciones de la guía">
+    <ul>
+      <li><a href="#hero">Hero</a></li><li><a href="#color">Color</a></li><li><a href="#tipografia">Tipografía</a></li>
+      <li><a href="#motivos">Motivos</a></li><li><a href="#botones">Botones</a></li><li><a href="#estados">Estados</a></li>
+      <li><a href="#tarjetas">Tarjetas</a></li><li><a href="#tallas">Tallas</a></li><li><a href="#carrito">Carrito</a></li>
+      <li><a href="#formularios">Formularios</a></li><li><a href="#acordeon">Acordeón</a></li><li><a href="#reproductor">Reproductor</a></li>
+      <li><a href="#contador">Contador</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenido">
+    <!-- ===== HERO DE MUESTRA ===== -->
+    <section id="hero" class="hero grain" aria-labelledby="hero-title">
+      <picture class="hero__media">
+        <source type="image/avif" srcset="/img/club-house-piscina-ibiza-640.avif 640w, /img/club-house-piscina-ibiza-1200.avif 1200w" sizes="(min-width: 900px) 45vw, 100vw">
+        <img src="/img/club-house-piscina-ibiza-1200.jpg" srcset="/img/club-house-piscina-ibiza-640.jpg 640w, /img/club-house-piscina-ibiza-1200.jpg 1200w" sizes="(min-width: 900px) 45vw, 100vw"
+             width="894" height="1200" fetchpriority="high" decoding="async"
+             alt="Chico de espaldas con la camiseta Club House cruzando una piscina con nenúfares sobre piedras, en un paisaje de Ibiza">
+      </picture>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="vinyl hero__vinyl" aria-hidden="true" data-parallax="-12"></div>
+      <span class="sticker sticker--round hero__sticker" style="--rot:8deg" aria-hidden="true">Hecho en<br>Madrid</span>
+      <div class="container hero__content">
+        <p class="eyebrow">Danz Collective · Tracks &amp; Cocktails</p>
+        <h1 id="hero-title" class="display hero__title" data-reveal="lines-now">
+          <span class="line-mask"><span style="--i:0">Ropa,</span></span>
+          <span class="line-mask"><span style="--i:1">música house</span></span>
+          <span class="line-mask"><span style="--i:2">y fiestas.</span></span>
+          <span class="line-mask"><span style="--i:3"><em>Desde Madrid.</em></span></span>
+        </h1>
+        <div class="cluster">
+          <a class="btn" href="#tarjetas" data-magnetic="0.25">
+            <span class="btn__label-swap"><span>Comprar la colección</span><span aria-hidden="true">Comprar la colección</span></span>
+            <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="btn btn--secondary" href="#contador" data-magnetic="0.25">Próxima fiesta</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="No es una colección. Es una actitud. Celebrate life. The art of Mixing.">
+      <div class="marquee__track">
+        <span class="marquee__item">No es una colección</span><svg class="flor flor--spin" aria-hidden="true"><use href="#i-flor"/></svg>
+        <span class="marquee__item marquee__item--outline">Es una actitud</span><svg class="flor flor--spin" aria-hidden="true"><use href="#i-flor"/></svg>
+        <span class="marquee__item">Celebrate life</span><svg class="flor flor--spin" aria-hidden="true"><use href="#i-flor"/></svg>
+        <span class="marquee__item marquee__item--outline">The art of Mixing</span><svg class="flor flor--spin" aria-hidden="true"><use href="#i-flor"/></svg>
+      </div>
+      <div class="marquee__track" aria-hidden="true">
+        <span class="marquee__item">No es una colección</span><svg class="flor flor--spin"><use href="#i-flor"/></svg>
+        <span class="marquee__item marquee__item--outline">Es una actitud</span><svg class="flor flor--spin"><use href="#i-flor"/></svg>
+        <span class="marquee__item">Celebrate life</span><svg class="flor flor--spin"><use href="#i-flor"/></svg>
+        <span class="marquee__item marquee__item--outline">The art of Mixing</span><svg class="flor flor--spin"><use href="#i-flor"/></svg>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="trust" role="list" aria-label="Por qué comprar aquí">
+        <div class="trust__item" role="listitem"><svg aria-hidden="true"><use href="#i-truck"/></svg><div><strong>Envío gratis desde 75 €</strong><span class="muted">En España, 2–5 días</span></div></div>
+        <div class="trust__item" role="listitem"><svg aria-hidden="true"><use href="#i-swap"/></svg><div><strong>Cambios en 14 días</strong><span class="muted">Prenda sin usar y con etiqueta</span></div></div>
+        <div class="trust__item" role="listitem"><svg aria-hidden="true"><use href="#i-pin"/></svg><div><strong>Hecho en Madrid</strong><span class="muted">Impreso en nuestro estudio</span></div></div>
+        <div class="trust__item" role="listitem"><svg aria-hidden="true"><use href="#i-chat"/></svg><div><strong>Atención por WhatsApp</strong><span class="muted">Número pendiente</span></div></div>
+      </div>
+      <p class="admin-note"><svg width="18" height="18" aria-hidden="true"><use href="#i-alert"/></svg>Solo admin: "Atención por WhatsApp" no se mostrará en la web pública hasta que la marca dé el número. Las tarifas de envío están pendientes de confirmar.</p>
+    </div>
+
+    <div class="container">
+      <!-- ===== COLOR ===== -->
+      <section id="color" class="sg-section" aria-labelledby="color-t">
+        <div class="sg-head"><p class="eyebrow">01 · Tokens</p><h2 id="color-t" class="h2">Color</h2><p class="lead">Negro de club, un naranja de cóctel al atardecer y dos acentos del estampado, usados con cuentagotas. Al lado de cada color, su contraste sobre el fondo.</p></div>
+        <div class="sg-grid">
+          <div class="swatch"><div class="swatch__chip" style="background:#0a0a0a">Fondo</div><p class="sg-label">--bg #0A0A0A</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#141414">Superficie 1</div><p class="sg-label">--surface-1 #141414</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#202020">Superficie 2</div><p class="sg-label">--surface-2 #202020</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#0a0a0a;box-shadow:inset 0 0 0 2px #6b6b6b">Borde control</div><p class="sg-label">--line-strong #6B6B6B · 3,7:1</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#fff;color:#0a0a0a">Texto</div><p class="sg-label">--text #FFFFFF · 19,8:1</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#c9c9c9;color:#0a0a0a">Texto 2</div><p class="sg-label">--text-2 #C9C9C9 · 12:1</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background:#9e9e9e;color:#0a0a0a">Texto 3</div><p class="sg-label">--text-3 #9E9E9E · 7,4:1</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background:var(--accent);color:#0a0a0a">Acento</div><p class="sg-label">--accent #FF7A3D · 7,6:1 · texto encima en negro</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background:var(--sun);color:#0a0a0a">Sol Club House</div><p class="sg-label">--sun #F5C84B · provisional</p></div>
+          <div class="swatch"><div class="swatch__chip" style="background:var(--pool);color:#0a0a0a">Piscina T&amp;C</div><p class="sg-label">--pool #3FC1B0 · provisional</p></div>
+        </div>
+      </section>
+
+      <!-- ===== TIPOGRAFÍA ===== -->
+      <section id="tipografia" class="sg-section" aria-labelledby="tipo-t">
+        <div class="sg-head"><p class="eyebrow">02 · Tokens</p><h2 id="tipo-t" class="h2">Tipografía</h2><p class="lead">Unbounded para gritar en la pista, Inter para leer sin esfuerzo. La escala es fluida, de 360 a 1920 px.</p></div>
+        <div class="type-row"><p class="sg-label">Display · Unbounded 800 · --fs-hero</p><p class="display">The art of Mixing</p></div>
+        <div class="type-row"><p class="sg-label">H1 · Unbounded 800</p><p class="h1">Celebrate life</p></div>
+        <div class="type-row"><p class="sg-label">H2 · Unbounded 800</p><p class="h2">Tres proyectos, una familia</p></div>
+        <div class="type-row"><p class="sg-label">H3 · Unbounded 600</p><p class="h3">La banda sonora de la colección</p></div>
+        <div class="type-row"><p class="sg-label">H4 · Inter 600</p><p class="h4">Si lo pides hoy, sale en 1–3 días laborables</p></div>
+        <div class="type-row"><p class="sg-label">Lead · Inter 400</p><p class="lead">Para quien no necesita explicar dónde estuvo anoche. Camisetas heavyweight de algodón orgánico, impresas en nuestro estudio de Madrid.</p></div>
+        <div class="type-row"><p class="sg-label">Cuerpo · Inter 400 · 16 px · 1,55</p><p style="max-width:65ch">Nacimos en 2024 entre amigos, entre vinilos y terrazas. Hacemos ropa, sacamos música house con Danz In Records y montamos fiestas con Danzers. Come inside and become part of the family.</p></div>
+        <div class="type-row"><p class="sg-label">Eyebrow · Inter 600 · mayúsculas</p><p class="eyebrow">Edición limitada · PV 2026</p></div>
+      </section>
+
+      <!-- ===== MOTIVOS ===== -->
+      <section id="motivos" class="sg-section" aria-labelledby="motivos-t">
+        <div class="sg-head"><p class="eyebrow">03 · Recursos propios</p><h2 id="motivos-t" class="h2">Motivos</h2><p class="lead">La flor de Danzflor, los surcos del vinilo, el ecualizador y la copa de martini. Con ellos montamos las secciones aunque no haya foto.</p></div>
+        <div class="sg-grid">
+          <div class="sg-card stack"><svg class="flor flor--spin" width="72" height="72" style="color:var(--accent)" aria-hidden="true"><use href="#i-flor"/></svg><p class="h4">Flor</p><p class="small muted">Provisional, de 6 pétalos. Se cambia por el vector oficial en cuanto la marca lo pase.</p></div>
+          <div class="sg-card stack"><div class="vinyl" style="--vinyl-size:120px" aria-hidden="true"></div><p class="h4">Vinilo · 33⅓ rpm</p><p class="small muted">Solo CSS, sin imágenes. Con reduced-motion se queda quieto.</p></div>
+          <div class="sg-card stack is-playing"><span class="eq" style="color:var(--accent);height:40px" aria-hidden="true"><span></span><span></span><span></span><span></span></span><p class="h4">Ecualizador a 120 BPM</p><p class="small muted">Marca qué tema está sonando.</p></div>
+          <div class="sg-card stack"><svg width="64" height="64" style="color:var(--accent)" aria-hidden="true"><use href="#i-martini"/></svg><p class="h4">Copa de martini</p><p class="small muted">Para la barra de confianza y los estados vacíos.</p></div>
+          <div class="sg-card stack"><div class="cluster"><span class="sticker">Edición limitada</span><span class="sticker sticker--accent" style="--rot:3deg">Nuevo drop</span><span class="sticker sticker--pool" style="--rot:-2deg">Danz In</span></div><p class="h4">Pegatinas</p></div>
+          <div class="no-photo" style="--ratio: 4/3"><svg class="flor" aria-hidden="true"><use href="#i-flor"/></svg><p class="no-photo__text">Danzers<br>World V1</p></div>
+        </div>
+        <p class="small muted" style="margin-top:var(--sp-3)">El último bloque es el fallback "sin foto": se usa cuando una sección no tiene imagen, para no dejar nunca cajas grises.</p>
+      </section>
+
+      <!-- ===== BOTONES ===== -->
+      <section id="botones" class="sg-section" aria-labelledby="botones-t">
+        <div class="sg-head"><p class="eyebrow">04 · Componentes</p><h2 id="botones-t" class="h2">Botones</h2><p class="lead">Miden 52 px de alto, y los de icono 44 × 44 px. Tienen brillo al pasar el ratón y foco naranja visible. Los magnéticos solo se activan con ratón.</p></div>
+        <div class="demo-row">
+          <button class="btn" type="button" data-magnetic>Añadir al carrito</button>
+          <button class="btn btn--secondary" type="button" data-magnetic>Ver la colección</button>
+          <button class="btn btn--dark" type="button">Escuchar</button>
+          <button class="btn btn--ghost" type="button">Ver más <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <button class="btn btn--sm" type="button">Pequeño</button>
+          <button class="btn" type="button" disabled>Agotado</button>
+          <button class="btn btn--icon" type="button" aria-label="Cerrar"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+          <button class="btn btn--icon cart-btn" type="button" data-open="cart-drawer" aria-label="Abrir carrito"><svg aria-hidden="true"><use href="#i-bag"/></svg><span class="cart-btn__count" data-cart-count></span></button>
+        </div>
+      </section>
+
+      <!-- ===== ESTADOS ===== -->
+      <section id="estados" class="sg-section" aria-labelledby="estados-t">
+        <div class="sg-head"><p class="eyebrow">05 · Componentes</p><h2 id="estados-t" class="h2">Estados de stock</h2><p class="lead">Cada estado combina color, punto y texto, así que nunca depende solo del color.</p></div>
+        <div class="demo-row">
+          <span class="badge badge--ok">Disponible</span>
+          <span class="badge badge--low">Últimas tallas</span>
+          <span class="badge badge--out">Agotado · edición limitada</span>
+          <span class="badge badge--plain">Camiseta</span>
+        </div>
+      </section>
+
+      <!-- ===== TARJETAS ===== -->
+      <section id="tarjetas" class="sg-section" aria-labelledby="tarjetas-t">
+        <div class="sg-head"><p class="eyebrow">06 · Componentes</p><h2 id="tarjetas-t" class="h2">Tarjetas de producto</h2><p class="lead">Fotos y stock reales de la tienda a fecha de 19/11/2026. Lo que está agotado va siempre al final. Al pasar el ratón sale la foto con modelo; el «+» abre la compra rápida.</p></div>
+        <div class="cards" id="cards" aria-live="polite"></div>
+      </section>
+
+      <!-- ===== TALLAS ===== -->
+      <section id="tallas" class="sg-section" aria-labelledby="tallas-t">
+        <div class="sg-head"><p class="eyebrow">07 · Componentes</p><h2 id="tallas-t" class="h2">Selector de talla</h2><p class="lead">Ejemplo con la Disco Culture Tee y su stock real: M y L están agotadas. Si eliges una talla agotada, aparece "Avísame cuando vuelva".</p></div>
+        <div class="two">
+          <div class="stack" style="--stack:var(--sp-5)">
+            <div class="cluster" style="justify-content:space-between"><p class="h3">Disco Culture Tee</p><p class="price price--lg">38,00&nbsp;€</p></div>
+            <dz-sizes data-buy="#buy-demo" data-notify="notify-modal" data-model="La modelo lleva una S.">
+              <fieldset class="sizes">
+                <legend>Talla</legend>
+                <div class="sizes__grid">
+                  <label class="size"><input type="radio" name="talla-demo" value="52782614905179" data-size="S">S</label>
+                  <label class="size is-out"><input type="radio" name="talla-demo" value="52782614872411" data-size="M" data-out="true">M<span class="visually-hidden"> (agotada)</span></label>
+                  <label class="size is-out"><input type="radio" name="talla-demo" value="52782614839643" data-size="L" data-out="true">L<span class="visually-hidden"> (agotada)</span></label>
+                  <label class="size"><input type="radio" name="talla-demo" value="52782614806875" data-size="XL">XL</label>
+                </div>
+              </fieldset>
+              <p class="sizes__hint" aria-live="polite"></p>
+            </dz-sizes>
+            <div class="cluster">
+              <button id="buy-demo" class="btn" type="button" disabled>Añadir al carrito</button>
+              <button class="btn btn--ghost" type="button" data-open="size-guide"><svg aria-hidden="true"><use href="#i-ruler"/></svg>Guía de tallas</button>
+            </div>
+            <p class="small muted">Si lo pides hoy, sale en 1–3 días laborables.</p>
+          </div>
+          <div class="sg-card stack">
+            <p class="h4">Comportamiento</p>
+            <ul class="small muted" style="padding-left:1.2em">
+              <li>Es un grupo de radios nativo, así que funciona con flechas, Tab y lector de pantalla.</li>
+              <li>Las tallas agotadas se ven tachadas y el lector las anuncia como "agotada".</li>
+              <li>Sin talla elegida no se puede comprar, y el botón lo indica.</li>
+              <li>En móvil, la ficha de producto tendrá una barra de compra fija abajo (fase 3).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CARRITO ===== -->
+      <section id="carrito" class="sg-section" aria-labelledby="carrito-t">
+        <div class="sg-head"><p class="eyebrow">08 · Componentes</p><h2 id="carrito-t" class="h2">Carrito lateral</h2><p class="lead">Incluye cantidades, eliminar, barra hacia el envío gratis de 75 €, "Completa el look" y nota de pedido. "Ir al pago" te lleva al checkout oficial de danzcollective.com con el carrito ya montado.</p></div>
+        <div class="demo-row">
+          <button class="btn" type="button" id="demo-add">Añadir Club House Tee · M</button>
+          <button class="btn btn--secondary" type="button" data-open="cart-drawer">Abrir carrito</button>
+          <button class="btn btn--ghost" type="button" id="demo-clear">Vaciar</button>
+        </div>
+      </section>
+
+      <!-- ===== FORMULARIOS ===== -->
+      <section id="formularios" class="sg-section" aria-labelledby="form-t">
+        <div class="sg-head"><p class="eyebrow">09 · Componentes</p><h2 id="form-t" class="h2">Formularios</h2><p class="lead">Se validan al salir de cada campo y los errores están en español y dicen cómo arreglarlo. En esta página <strong>no se envía nada</strong>.</p></div>
+        <div class="two">
+          <form class="sg-card stack" data-validate data-demo novalidate name="newsletter" aria-labelledby="nl-t">
+            <p id="nl-t" class="h3">Acceso anticipado</p>
+            <p class="muted">El próximo drop llega antes a tu email. Sin spam, palabra de DJ.</p>
+            <div class="form-fields stack">
+              <div class="field">
+                <label class="field__label" for="nl-email">Email</label>
+                <div class="inline-form">
+                  <input class="input" id="nl-email" name="email" type="email" autocomplete="email" required placeholder="tu@email.com" aria-describedby="nl-email-err">
+                  <button class="btn" type="submit">Apuntarme</button>
+                </div>
+                <p class="field__error" id="nl-email-err"><svg width="16" height="16" aria-hidden="true"><use href="#i-alert"/></svg><span></span></p>
+              </div>
+              <label class="check"><input type="checkbox" name="acepto" required id="nl-ok"><span>Acepto la <a href="#acordeon">política de privacidad</a>.</span></label>
+              <p class="field__error" data-error-for="nl-ok"><svg width="16" height="16" aria-hidden="true"><use href="#i-alert"/></svg><span></span></p>
+            </div>
+            <div class="form-success" tabindex="-1"><svg aria-hidden="true"><use href="#i-check"/></svg><p><strong>Estás dentro.</strong> Te avisamos antes que a nadie.</p></div>
+          </form>
+
+          <form class="sg-card stack" data-validate data-demo novalidate name="demos" aria-labelledby="demo-t">
+            <p id="demo-t" class="h3">Envía tu demo a Danz In Records</p>
+            <div class="form-fields stack">
+              <div class="field">
+                <label class="field__label" for="d-name">Nombre artístico</label>
+                <input class="input" id="d-name" name="artista" required minlength="2" autocomplete="nickname">
+                <p class="field__error"><svg width="16" height="16" aria-hidden="true"><use href="#i-alert"/></svg><span></span></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="d-link">Enlace privado</label>
+                <input class="input" id="d-link" name="enlace" type="url" required placeholder="https://soundcloud.com/…" aria-describedby="d-link-hint">
+                <p class="field__hint" id="d-link-hint">SoundCloud privado, Dropbox o Drive. Respondemos en un máximo de 2 semanas.</p>
+                <p class="field__error"><svg width="16" height="16" aria-hidden="true"><use href="#i-alert"/></svg><span></span></p>
+              </div>
+              <button class="btn" type="submit">Enviar demo</button>
+            </div>
+            <div class="form-success" tabindex="-1"><svg aria-hidden="true"><use href="#i-check"/></svg><p><strong>Recibido.</strong> Lo escuchamos con calma y te contestamos en 2 semanas como mucho.</p></div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ===== ACORDEÓN + TABLA ===== -->
+      <section id="acordeon" class="sg-section" aria-labelledby="acc-t">
+        <div class="sg-head"><p class="eyebrow">10 · Componentes</p><h2 id="acc-t" class="h2">Acordeón y tablas</h2><p class="lead">Usa el <code>&lt;details&gt;</code> nativo: funciona sin JS y es accesible. Las tarifas de envío son las del brief y faltan por confirmar.</p></div>
+        <div class="two">
+          <div>
+            <details class="acc" open><summary>Descripción</summary><div class="acc__body"><p>Camiseta heavyweight extra suave de verano, en color crema. Un clásico instantáneo de la colección. Algodón orgánico de 240 g/m². La modelo lleva una S.</p></div></details>
+            <details class="acc"><summary>Envíos</summary><div class="acc__body"><p>Preparamos tu pedido en 1–3 días laborables. En España el envío es gratis a partir de 75 €.</p></div></details>
+            <details class="acc"><summary>Cambios y devoluciones</summary><div class="acc__body"><p>Tienes 14 días desde la entrega para cambiar o devolver la prenda, sin usar y con su etiqueta. El reembolso se hace al mismo método de pago.</p></div></details>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <caption class="visually-hidden">Tarifas y plazos de envío</caption>
+              <thead><tr><th scope="col">Destino</th><th scope="col">Precio</th><th scope="col">Plazo</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">España</th><td>4,99 € · gratis desde 75 €</td><td>2–5 días</td></tr>
+                <tr><th scope="row">Unión Europea</th><td>12,99 €</td><td>5–10 días</td></tr>
+                <tr><th scope="row">Resto del mundo</th><td>21,99 €</td><td>10–20 días</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== REPRODUCTOR ===== -->
+      <section id="reproductor" class="sg-section" aria-labelledby="rep-t">
+        <div class="sg-head"><p class="eyebrow">11 · Componentes</p><h2 id="rep-t" class="h2">Reproductor</h2><p class="lead">Suena de verdad con el SoundCloud Widget API y nuestra interfaz encima. El iframe solo se carga cuando pulsas play. Al bajar con el scroll, el mini-reproductor sigue sonando.</p></div>
+        <div class="stack" style="--stack:var(--sp-4)">
+          <dz-player class="player" data-url="https://soundcloud.com/collectivedanz/chicharro-es-last-breath-dnz13" data-title="Last Breath" data-artist="Chicharro ES · DNZ13">
+            <div class="player__cover"><div class="vinyl" aria-hidden="true"></div></div>
+            <div class="player__main">
+              <div class="player__top">
+                <button class="player__toggle" type="button" aria-label="Reproducir Last Breath" aria-pressed="false">
+                  <svg class="i-play" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-pause" aria-hidden="true"><use href="#i-pause"/></svg>
+                </button>
+                <div class="player__titles"><p class="player__title">Last Breath</p><p class="player__artist">Chicharro ES · DNZ13</p></div>
+                <span class="eq" style="color:var(--accent);margin-left:auto" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+              </div>
+              <div class="wave" role="slider" tabindex="0" aria-label="Posición del tema" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+              <div class="player__time"><span data-now>0:00</span><span data-dur>–:––</span></div>
+            </div>
+            <p class="player__credit">Se reproduce desde el <a href="https://soundcloud.com/collectivedanz" rel="noopener" target="_blank">SoundCloud de Danz In Records</a>.</p>
+          </dz-player>
+
+          <dz-player class="player" data-url="https://soundcloud.com/collectivedanz/santacruz-piur-life-dnz12" data-title="Piur Life" data-artist="Santacruz · DNZ12">
+            <div class="player__cover"><div class="vinyl" aria-hidden="true"></div></div>
+            <div class="player__main">
+              <div class="player__top">
+                <button class="player__toggle" type="button" aria-label="Reproducir Piur Life" aria-pressed="false">
+                  <svg class="i-play" aria-hidden="true"><use href="#i-play"/></svg><svg class="i-pause" aria-hidden="true"><use href="#i-pause"/></svg>
+                </button>
+                <div class="player__titles"><p class="player__title">Piur Life</p><p class="player__artist">Santacruz · DNZ12</p></div>
+                <span class="eq" style="color:var(--accent);margin-left:auto" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+              </div>
+              <div class="wave" role="slider" tabindex="0" aria-label="Posición del tema" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+              <div class="player__time"><span data-now>0:00</span><span data-dur>–:––</span></div>
+            </div>
+            <p class="player__credit">Se reproduce desde el <a href="https://soundcloud.com/collectivedanz" rel="noopener" target="_blank">SoundCloud de Danz In Records</a>.</p>
+          </dz-player>
+          <p class="small subtle">Las barras son decorativas, no la forma de onda real del tema. Se colorean según el progreso y puedes hacer clic en ellas, o usar las flechas, para saltar.</p>
+        </div>
+      </section>
+
+      <!-- ===== CONTADOR ===== -->
+      <section id="contador" class="sg-section" aria-labelledby="cont-t">
+        <div class="sg-head"><p class="eyebrow">12 · Componentes</p><h2 id="cont-t" class="h2">Contador de la próxima Danzers</h2><p class="lead">Solo aparece si hay una fecha real futura. Si el campo está vacío o la fecha ya ha pasado, el bloque desaparece entero.</p></div>
+        <div class="two">
+          <div class="sg-card stack" data-countdown-wrap>
+            <p class="admin-note"><svg width="18" height="18" aria-hidden="true"><use href="#i-alert"/></svg>Fecha de ejemplo para ver el componente, no es una fiesta real.</p>
+            <p class="eyebrow">Danzers by Danz Collective</p>
+            <dz-countdown data-date="2026-12-31T23:00:00+01:00">
+              <div class="countdown" role="timer" aria-label="Cuenta atrás">
+                <div class="countdown__unit"><span class="countdown__num" data-u="d">00</span><span class="countdown__label">días</span></div>
+                <div class="countdown__unit"><span class="countdown__num" data-u="h">00</span><span class="countdown__label">horas</span></div>
+                <div class="countdown__unit"><span class="countdown__num" data-u="m">00</span><span class="countdown__label">min</span></div>
+                <div class="countdown__unit"><span class="countdown__num" data-u="s" aria-hidden="true">00</span><span class="countdown__label">seg</span></div>
+              </div>
+            </dz-countdown>
+          </div>
+          <div class="sg-card stack" data-countdown-wrap>
+            <p class="h4">Sin fecha</p>
+            <dz-countdown data-date=""><div class="countdown">Esto no debería verse.</div></dz-countdown>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Barra inferior móvil -->
+  <nav class="tabbar" aria-label="Accesos rápidos">
+    <a href="#tarjetas"><svg aria-hidden="true"><use href="#i-shop"/></svg>Tienda</a>
+    <button type="button"><svg aria-hidden="true"><use href="#i-search"/></svg>Buscar</button>
+    <button type="button" class="cart-btn" data-open="cart-drawer" aria-label="Abrir carrito, vacío"><svg aria-hidden="true"><use href="#i-bag"/></svg>Carrito<span class="cart-btn__count" data-cart-count style="right:calc(50% - 22px)"></span></button>
+    <a href="#formularios"><svg aria-hidden="true"><use href="#i-user"/></svg>Cuenta</a>
+  </nav>
+
+  <!-- Menú móvil a pantalla completa -->
+  <dialog id="menu" class="menu-full" aria-label="Menú">
+    <div class="container header__row">
+      <span class="wordmark" aria-hidden="true">DANZFL<svg class="flor"><use href="#i-flor"/></svg>R</span>
+      <button class="btn btn--icon" type="button" data-close aria-label="Cerrar menú"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <ul class="menu-full__list">
+      <li style="--i:0"><a href="#tarjetas" data-close>Tienda <small>Danzflor</small></a></li>
+      <li style="--i:1"><a href="#reproductor" data-close>Música <small>Danz In Records</small></a></li>
+      <li style="--i:2"><a href="#contador" data-close>Eventos <small>Danzers</small></a></li>
+      <li style="--i:3"><a href="#motivos" data-close>Nosotros</a></li>
+      <li style="--i:4"><a href="#acordeon" data-close>Ayuda</a></li>
+    </ul>
+  </dialog>
+
+  <!-- Carrito lateral -->
+  <dz-cart data-upsell='[{"id":52782619689307,"handle":"swim-short","title":"Yepo Swim Short","size":"M","price":40,"img":"Retro_Elegant_Travelling_Magazine_Cover_-_illustrationImage-2.png","available":true},{"id":52781398393179,"handle":"yepo-bag","title":"Yepo Bag","size":"Única","price":14,"img":"GRAFICAS_TRACKS_AND_COCKTAILS_-_New_Group-7.png","available":false}]'>
+    <dialog id="cart-drawer" class="drawer" aria-labelledby="cart-title">
+      <div class="drawer__head">
+        <p id="cart-title" class="h3">Tu carrito</p>
+        <button class="btn btn--icon" type="button" data-close aria-label="Cerrar carrito"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <div class="drawer__body">
+        <div class="ship-bar"><p class="ship-bar__text"></p><div class="ship-bar__track" aria-hidden="true"><div class="ship-bar__fill"></div></div></div>
+        <div data-lines></div>
+        <p class="visually-hidden" aria-live="polite" data-live></p>
+      </div>
+      <div class="drawer__foot stack" style="--stack:var(--sp-3)">
+        <details class="acc" style="border-top:0"><summary class="small">Añadir nota al pedido</summary><div class="acc__body"><label class="visually-hidden" for="cart-note">Nota del pedido</label><textarea id="cart-note" class="textarea" maxlength="500" placeholder="¿Es un regalo? ¿Algo que debamos saber?"></textarea></div></details>
+        <div class="cluster" style="justify-content:space-between"><span>Subtotal</span><span class="price price--lg" data-total>0,00&nbsp;€</span></div>
+        <p class="small muted">Impuestos incluidos. El envío se calcula en el pago.</p>
+        <a class="btn btn--block" data-checkout hidden href="#" rel="noopener">Ir al pago seguro <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="small subtle" style="text-align:center">Pagas en la tienda oficial de Danz Collective (Shopify)</p>
+      </div>
+    </dialog>
+  </dz-cart>
+
+  <!-- Guía de tallas -->
+  <dialog id="size-guide" class="modal" aria-labelledby="sg-title">
+    <div class="modal__head"><p id="sg-title" class="h3">Guía de tallas</p><button class="btn btn--icon" type="button" data-close aria-label="Cerrar guía de tallas"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="modal__body stack">
+      <p class="admin-note"><svg width="18" height="18" aria-hidden="true"><use href="#i-alert"/></svg>Solo admin: faltan las medidas en cm (pecho, largo y hombros). Hasta tenerlas, la web pública solo enseña la talla del modelo y los consejos de abajo; la tabla no aparece.</p>
+      <p><strong>Corte fácil de llevar.</strong> Si estás entre dos tallas y te gusta holgada, coge la grande.</p>
+      <p class="muted">Cómo medirte: pon una camiseta que te quede bien sobre una superficie plana y mide el ancho de axila a axila y el largo desde el hombro hasta el bajo.</p>
+      <p class="muted">¿Dudas? Escríbenos a <a href="mailto:info@danzcollective.com">info@danzcollective.com</a> y te ayudamos a elegir.</p>
+    </div>
+  </dialog>
+
+  <!-- Avísame cuando vuelva -->
+  <dialog id="notify-modal" class="modal" aria-labelledby="nt-title">
+    <div class="modal__head"><p id="nt-title" class="h3">Avísame cuando vuelva</p><button class="btn btn--icon" type="button" data-close aria-label="Cerrar"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="modal__body">
+      <form class="stack" data-validate data-demo novalidate name="aviso-stock">
+        <div class="form-fields stack">
+          <p class="muted">Te escribimos solo una vez, cuando haya reposición de <strong data-notify-label>esta talla</strong>.</p>
+          <input type="hidden" name="producto-talla" value="">
+          <div class="field">
+            <label class="field__label" for="nt-email">Email</label>
+            <input class="input" id="nt-email" name="email" type="email" autocomplete="email" required placeholder="tu@email.com">
+            <p class="field__error"><svg width="16" height="16" aria-hidden="true"><use href="#i-alert"/></svg><span></span></p>
+          </div>
+          <button class="btn btn--block" type="submit">Avisarme</button>
+        </div>
+        <div class="form-success" tabindex="-1"><svg aria-hidden="true"><use href="#i-check"/></svg><p><strong>Hecho.</strong> En cuanto vuelva, te llega un email.</p></div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Mini-reproductor persistente + host del iframe -->
+  <dz-mini-player>
+    <div class="mini-player" role="region" aria-label="Reproductor">
+      <span class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+      <p class="mini-player__text"><strong></strong><span></span></p>
+      <button class="btn btn--icon" type="button" data-mini-toggle aria-label="Pausar"><svg class="i-play" aria-hidden="true" style="display:none"><use href="#i-play"/></svg><svg class="i-pause" aria-hidden="true"><use href="#i-pause"/></svg></button>
+      <button class="btn btn--icon" type="button" data-mini-close aria-label="Cerrar reproductor"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      <span class="mini-player__progress" aria-hidden="true"></span>
+    </div>
+  </dz-mini-player>
+  <div id="dz-audio-host"></div>
+
+  <script type="module" src="/js/estilos.js"></script>
+</body>
+</html>

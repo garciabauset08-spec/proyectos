@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Danzflor · Tokens de diseño
+   Todos los pares texto/fondo pasan WCAG AA (contraste calculado en el plan).
+   ========================================================================== */
+:root {
+  color-scheme: dark;
+
+  /* — Color base — */
+  --bg: #0a0a0a;
+  --surface-1: #141414;
+  --surface-2: #202020;
+  --line: #262626;          /* solo divisores decorativos */
+  --line-strong: #6b6b6b;   /* bordes de controles: 3,7:1 sobre --bg (WCAG 1.4.11) */
+
+  --text: #ffffff;          /* 19,8:1 — también precios */
+  --text-2: #c9c9c9;        /* 12:1 */
+  --text-3: #9e9e9e;        /* 7,4:1 · 6,1:1 sobre --surface-2 */
+
+  /* — Acentos — */
+  --accent: #ff7a3d;        /* cóctel y atardecer · 7,6:1 sobre --bg */
+  --accent-ink: #0a0a0a;    /* texto sobre --accent (el blanco no pasa AA) */
+  --accent-hover: #ff9363;
+  --sun: #f5c84b;           /* amarillo Club House · provisional */
+  --pool: #3fc1b0;          /* turquesa Tracks + Cocktails · provisional */
+  --danger: #ff6b6b;        /* errores de formulario · 6,9:1 */
+
+  /* — Tipografía — */
+  --font-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --font-text: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --fs-hero: clamp(2.2rem, 0.6rem + 8.2vw, 8rem);   /* "CELEBRATE" cabe a 360 px */
+  --fs-h1: clamp(2.2rem, 1.4rem + 4.4vw, 5.25rem);
+  --fs-h2: clamp(1.75rem, 1.2rem + 2.6vw, 3.5rem);
+  --fs-h3: clamp(1.25rem, 1.05rem + 1vw, 2rem);
+  --fs-h4: clamp(1.05rem, 1rem + 0.35vw, 1.25rem);
+  --fs-body: 1rem;          /* 16 px mínimo en móvil */
+  --fs-lead: clamp(1.0625rem, 1rem + 0.4vw, 1.3125rem);
+  --fs-small: 0.875rem;
+  --fs-micro: 0.75rem;
+
+  --lh-tight: 0.95;
+  --lh-head: 1.08;
+  --lh-body: 1.55;
+  --tracking-display: -0.02em;
+  --tracking-caps: 0.08em;
+
+  /* — Espaciado (escala de 4 px, fluida en las grandes) — */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  --sp-8: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+  --sp-9: clamp(5rem, 3rem + 8vw, 10rem);
+
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --max: 1440px;
+
+  /* — Formas — */
+  --radius-s: 6px;
+  --radius-m: 14px;
+  --radius-l: 28px;
+  --radius-pill: 999px;
+  --tap: 44px;              /* objetivo táctil mínimo WCAG 2.2 */
+
+  /* — Sombras y luz — */
+  --shadow-1: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 10px 30px rgb(0 0 0 / 0.35);
+  --shadow-2: 0 30px 80px rgb(0 0 0 / 0.6);
+  --glow-accent: 0 0 0 1px rgb(255 122 61 / 0.5), 0 8px 40px rgb(255 122 61 / 0.25);
+
+  /* — Movimiento — */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);       /* power3.out aprox. */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);   /* toque "flyer" */
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+  --dur-3: 420ms;
+  --dur-4: 700ms;
+  --bpm: 120;               /* tempo del marquee y del ecualizador */
+  --beat: calc(60s / var(--bpm));
+
+  /* — Capas — */
+  --z-header: 50;
+  --z-bar: 60;
+  --z-drawer: 100;
+  --z-toast: 120;
+
+  /* — Foco — */
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-3: 1ms;
+    --dur-4: 1ms;
+  }
+}

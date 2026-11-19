@@ -1,0 +1,20 @@
+# Generado en cada build (Netlify lo crea con netlify.toml)
+web/dist/
+danz-vista-previa.zip
+
+# Notas internas del proyecto (no públicas)
+PENDIENTES.md
+CHECKLIST_LANZAMIENTO.md
+INFORME_QA.md
+PLAN_FASE_1.md
+
+# Material de trabajo y QA local
+qa/*
+!qa/auditar.py
+assets-fuente/
+.claude/
+
+# Sistema
+.DS_Store
+__pycache__/
+*.pyc

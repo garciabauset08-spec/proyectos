@@ -1,0 +1,13 @@
+# Danz Collective · Configuración de Netlify
+# Cada publicación lee el stock de la tienda y genera la web.
+
+[build]
+  base    = "web"
+  command = "python3 sync_stock.py && python3 build.py --prod"
+  publish = "dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+
+# Las redirecciones 301 y las cabeceras están en web/dist/_redirects y web/dist/_headers
+# (las genera build.py).
